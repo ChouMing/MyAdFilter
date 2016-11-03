@@ -1,0 +1,35 @@
+{
+	"name":"Ad filter",
+	"manifest_version":2,
+	"version":"0.1",
+	"description":"This is a Ad filter",
+	"browser_action":{
+		"default_title":"Ad filter",
+		"default_icon":"filtericon.png",
+		"default_popup":"popup.html"
+	},
+	"content_scripts":[
+	{
+		"matches":["http://dytt8.net/*",
+			"http://www.dy2018.com/*",
+			"http://www.dygod.net/*",
+			"http://user.qzone.qq.com/*",
+			"http://blog.csdn.net/*"],
+		"run_at":"document_start",
+		"js":["filter.js"]
+		}
+	],
+	"background":{
+		"scripts":["popup.js"],
+		"persistent":false
+	},
+
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"notifications"
+	],
+	"web_accessible_resources":[
+		"filtericon.png"
+	]
+}
